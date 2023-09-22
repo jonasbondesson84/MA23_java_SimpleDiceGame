@@ -46,12 +46,8 @@ public class Main {
         }
 
         System.out.println("\nVinnare är:");
-        for (Player player : leaderBoard) {
-            if (player.getPoints() == leaderBoard.get(0).getPoints()) { //Om nästa person i poänglistan har samma som vinnaren skrivs det ut, annars avbryts loopen
-                System.out.println(player.getName());
-            } else {
-                break;
-            }
+        for(Player player : Player.getWinners(leaderBoard)) {
+            System.out.println(player.getName() + " - " + player.getPoints());
         }
 
         System.out.println("\nTack för att ni har spelat!");

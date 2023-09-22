@@ -64,6 +64,10 @@ public class Player {
             playerGuess = sc.nextInt();
             sc.nextLine();
             player.rollDice(player.getDice()); //slår tärningarna
+            for(Die die : player.getDice()) {
+                System.out.println("Tärning visade " + die.getCurrentValue());
+            }
+
             int diceTotal= player.getDiceValue(); //Hämtar totalen av tärningsslagen
             System.out.println("Totala värdet var " + diceTotal + "\n");
             if(playerGuess==diceTotal) { //Om totalen var samma som totalen av tärningsslagen
@@ -89,5 +93,17 @@ public class Player {
          Collections.sort(leaderboard, compareByPoints);
 
         return leaderboard;
+    }
+
+    public static ArrayList<Player> getWinners(ArrayList<Player> leaderBoard) {
+        ArrayList<Player> winnerList = new ArrayList<>();
+        for (Player player : leaderBoard) {
+            if (player.getPoints() == leaderBoard.get(0).getPoints()) { //Om nästa person i poänglistan har samma som vinnaren skrivs det ut, annars avbryts loopen
+                winnerList.add(player);
+            } else {
+                break;
+            }
+        }
+        return winnerList;
     }
 }

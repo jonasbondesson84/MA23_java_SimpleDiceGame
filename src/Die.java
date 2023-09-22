@@ -35,8 +35,6 @@ public class Die {
     //Metoder
     public void roll() {
         this.currentValue =  randomDieNumber.nextInt(numberOfSides)+1;
-        System.out.println("Tärningen visade " + currentValue);
-
     }
 
 
